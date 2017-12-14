@@ -1,0 +1,16 @@
+  .App{max-width:1280px;
+  margin:auto;
+  padding:0 10px;
+  display:flex;
+  justify-content:space-between;
+  align-items:flex-start;
+  flex-wrap:wrap;
+position: relative;  
+
+  }
+
+  .Article__App {width:64%;
+}
+
+  .Title__App {
+    width: 34%;}
