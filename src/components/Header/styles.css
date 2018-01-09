@@ -9,44 +9,6 @@
 	width: 100%}
 
 .Header__logo {
-	margin-left: 15px;
+	margin-left: 0;
+	width: 50%;
 	}
-
-.Navigation {display: flex;
-    flex-direction: row-reverse;
-    list-style: none; 
-}
-
-.Navigation__item {
-    margin-left: 16px;
-    font-family: Roboto,sans-serif;
-}
-
-.Navigation__link {
-	margin-top: 6px;
-	text-decoration: none;
-	margin-right: 15px; 
-	position: relative;
-    display: block;
-    text-transform: uppercase;
-    text-decoration: none;
-    color: #424242;
-    font-size: 22px;
- }
-.Navigation__link:hover {
-    color: #ff5722;}
-
-.Navigation__link:after{
-	position:absolute;
-	top:47px;
-	left:0;
-	content:"";
-	width:0px;
-	height:4px;
-	background:#ff5722;
-	transition:width .4s}
-
-.Navigation__link:hover:after{
-	width:100%
-}
-

@@ -1,8 +1,12 @@
 .MovieForm{
+	width: 25%;
 	padding:16px;
 	border-radius:2px;
 	box-shadow:0 0 2px 2px rgba(33,33,33,.5);
-	text-align:center
+	text-align:center;
+	position:absolute;
+	right: 10px;
+	top:90px;
 }
 
 .MovieForm__label{display:block;
