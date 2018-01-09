@@ -35,7 +35,7 @@ addFilm = (newFilm) => {
  
   console.log("prevState.filmsAPP:", this.state.films);
   console.log("newFilmAPP:", newFilm);
-  const newBase = [newFilm,...this.state.films];
+  const newBase = [...this.state.films,newFilm];
   this.setState({films:newBase});
   console.log("newBaseAPP:", this.state.films);
   };

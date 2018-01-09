@@ -3,34 +3,28 @@ import React, {Component} from 'react';
 import './styles.css';
 import PropTypes from "prop-types";
 
-let form = null;
-let titleInput = null;
-let titleImage = null;
-let descriptionInput = null;
-let ratingInput = null;
+
 
 export default class FormNewFilm extends Component {
 
 _formSubmit = evt => {
       evt.preventDefault();
-      let desc = "";
-      if (descriptionInput.value.length < 320) {desc=descriptionInput.value}
-        else (desc=descriptionInput.value.substr(0, 320));
-      let title = "";
-      title= (titleInput.value.length < 40)? title=titleInput.value :title=titleInput.value.substr(0, 40);
+      if (this.descriptionInput.value.length < 320) {this.desc=this.descriptionInput.value}
+        else (this.desc=this.descriptionInput.value.substr(0, 320));
+      this.title= (this.titleInput.value.length < 40)? this.title=this.titleInput.value :this.title=this.titleInput.value.substr(0, 40);
       const filmsData = {
       id: v4(),
-      title: title,
-      description: desc,
-      image: titleImage.value,
-      rating: ratingInput.value};
-    if ((desc==="")||(title==="")||(ratingInput.value==='')) {alert ("Please, enter all necessary fields")}
+      title: this.title,
+      description: this.desc,
+      image: this.titleImage.value,
+      rating: this.ratingInput.value};
+    if ((this.desc==="")||(this.title==="")||(this.ratingInput.value==='')) {alert ("Please, enter all necessary fields")}
       else{
       this.props.addFilm(filmsData);
-      titleImage.value="";
-      titleInput.value="";
-      descriptionInput.value="";
-      ratingInput.value=0;
+      this.titleImage.value="";
+      this.titleInput.value="";
+      this.descriptionInput.value="";
+      this.ratingInput.value=0;
     };
 };
 
@@ -47,7 +41,7 @@ _formSubmit = evt => {
         className="MovieForm__input" 
         placeholder="Title" 
         ref={node => {
-          titleInput = node;
+          this.titleInput = node;
         }}
       />
   </label>
@@ -58,7 +52,7 @@ _formSubmit = evt => {
         className="MovieForm__input" 
         placeholder="url" 
         ref={node => {
-          titleImage = node;
+          this.titleImage = node;
         }}
       />
   </label>
@@ -69,7 +63,7 @@ _formSubmit = evt => {
       rows="7" 
       placeholder="Description"
       ref={node => {
-        descriptionInput = node;
+        this.descriptionInput = node;
       }}
       ></textarea>
   </label>
@@ -77,7 +71,7 @@ _formSubmit = evt => {
   <label className="MovieForm__label">Rating
     <select 
       className="MovieForm__input"
-      ref={node=>ratingInput=node}
+      ref={node=>this.ratingInput=node}
       >
         <option value="1">1</option>
         <option value="2">2</option>
