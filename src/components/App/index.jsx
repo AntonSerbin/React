@@ -22,7 +22,7 @@ componentWillMount() {
           title: newFilm.title,
           description: newFilm.overview,
           rating: newFilm.vote_average,
-          image: `https:/image.tmdb.org/t/p/w300_and_h450_bestv2${newFilm.poster_path}`
+          image: `https://image.tmdb.org/t/p/w300_and_h450_bestv2${newFilm.poster_path}`
         };
         const newBase = [...this.state.films,ourNewFilm];
         this.setState({films:newBase});
