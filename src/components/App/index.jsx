@@ -4,6 +4,8 @@ import './styles.css';
 import Header from 'components/Header';
 import ListMovieCards from 'components/ListMovieCards';
 import FormNewFilm from 'components/FormNewFilm';
+import FormSearchFilm from 'components/FormSearchFilm';
+
 import { fetchData } from 'API';
 
       
@@ -22,7 +24,7 @@ componentWillMount() {
           title: newFilm.title,
           description: newFilm.overview,
           rating: newFilm.vote_average,
-          image: `https://image.tmdb.org/t/p/w300_and_h450_bestv2${newFilm.poster_path}`
+          image: `https:/`+`/image.tmdb.org/t/p/w300_and_h450_bestv2${newFilm.poster_path}`
         };
         const newBase = [...this.state.films,ourNewFilm];
         this.setState({films:newBase});
@@ -30,9 +32,26 @@ componentWillMount() {
        console.log("State:", this.state);
   });
   };
+
+getFilmsByAPI = (query) => {
+  this.state = {films:[]};
+  console.log("getFilmsByAPI", query);
+  fetchData(query).then(arrFilms => {
+    arrFilms.map(newFilm=>{
+        const ourNewFilm = {
+          id: newFilm.id,
+          title: newFilm.title,
+          description: newFilm.overview,
+          rating: newFilm.vote_average,
+          image: `https:/`+`/image.tmdb.org/t/p/w300_and_h450_bestv2${newFilm.poster_path}`
+        };
+        const newBase = [...this.state.films,ourNewFilm];
+        this.setState({films:newBase});
+        });
+  });
+  };
  
 addFilm = (newFilm) => {
- 
   console.log("prevState.filmsAPP:", this.state.films);
   console.log("newFilmAPP:", newFilm);
   const newBase = [...this.state.films,newFilm];
@@ -41,13 +60,12 @@ addFilm = (newFilm) => {
   };
 
 deleteFilm = id => {
-
 let list  = this.state.films;
 console.log("DeleteFilm list of films", list);
 console.log("DeleteFilm ID", id);
 let newBaseOfFilms = list.filter((film) => film.id !== id);
 this.setState({films:newBaseOfFilms});
-console.log(newBaseOfFilms);
+console.log(newBaseOfFilms)
 }
 
   render() {
@@ -60,10 +78,12 @@ console.log(newBaseOfFilms);
           currentBaseOfFilms={this.state.films} 
           deleteFilmArticle={this.deleteFilm}
         />
-        <FormNewFilm addFilm={this.addFilm}/>
+        
+        <FormSearchFilm getFilmsByAPI={this.getFilmsByAPI}/>
      </div>
     );
   }
 }
+
 
 

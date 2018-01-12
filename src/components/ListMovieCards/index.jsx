@@ -8,9 +8,7 @@ import PropTypes from "prop-types";
 const ListMovieCards = ({currentBaseOfFilms, deleteFilmArticle}) => (
   <div className="MovieList">
 
-  {console.log("Массив в Article",currentBaseOfFilms)}
-
-  {currentBaseOfFilms.map(film=>(
+    {currentBaseOfFilms.map(film=>(
 
 	   	<MovieCard
         key= {film.id}
@@ -34,3 +32,4 @@ ListMovieCards.propTypes = {
 
 export default ListMovieCards;
 
+// {console.log("Массив в Article",currentBaseOfFilms)}
